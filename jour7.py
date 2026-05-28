@@ -14,3 +14,11 @@ rouge:
 O(n^2) 2 boucle for
 O(2^n)
 O(n!) --> recursive qui s'appelle 2 fois (exemple fibonaci)
+  
+  Data structuture (js)
+tableau : meilleurs pour accès lecture écriture
+stack : push et pop -> le dernier élément LIFO
+Queue : push dernier element , pop le 1er element FIFO
+single linked list 
+double linked list
+HashTable : --> dictionnaire python
