@@ -53,3 +53,12 @@ __lt__
 __le__
 __gt__ 
 
+
+methode issubclass
+test = issubclass(xx,yy)
+
+isinstance(c, Chat) si c est une instance de Chat
+
+heritage multiple --> à éviter
+
+module ABC
