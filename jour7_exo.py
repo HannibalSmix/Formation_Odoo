@@ -20,25 +20,30 @@ class Voiture():
     def roule_un_tour(self, circuit):
         vitesse_rand = random.randint(self.vitesse_min, self.vitesse_max)
         temps = 60 * circuit.distance / vitesse_rand 
-        print(f"Temps voiture {self.marque} {self.modele} : {temps}")
+        print(f"Temps voiture {self.marque} {self.modele} : {temps:.2f}")
         self.temps += temps
         self.tour +=1
 
-
-
 circuit = Circuit(10, 20)
-Voiture_1 = Voiture(80, 120, "Truc", "Mini")
-Voiture_2 = Voiture(70, 140, "Brol", "VW")
-Voiture_3 = Voiture(75, 135, "Machin", "Honda")
-Voiture_4 = Voiture(90, 160, "Plop", "Toyoto")
-Voiture_5 = Voiture(100, 145, "Clac", "Vrouvroum")
+voiture_1 = Voiture(80, 130, "Truc", "Mini")
+voiture_2 = Voiture(70, 140, "Brol", "VW")
+voiture_3 = Voiture(75, 135, "Machin", "Honda")
+voiture_4 = Voiture(85, 125, "Plop", "Toyoto")
+voiture_5 = Voiture(90, 115, "Clac", "Vrouvroum")
 
-les_voitures = [Voiture_1,Voiture_1,Voiture_1,Voiture_1,Voiture_5]
+les_voitures = [voiture_1, voiture_2, voiture_3, voiture_4, voiture_5]
 
 for i in range(circuit.tour):
-    Voiture_1.roule_un_tour(circuit)
-    Voiture_2.roule_un_tour(circuit)
-    Voiture_3.roule_un_tour(circuit)
-    Voiture_4.roule_un_tour(circuit)
-    Voiture_5.roule_un_tour(circuit)
+    print(f"Tour: {i+1}")
+    for v in les_voitures:
+        v.roule_un_tour(circuit)
 
+
+meilleur_temps = 1000000
+voiture_gagnante = []
+for v in les_voitures:
+    if v.temps < meilleur_temps:
+        meilleur_temps = v.temps
+        voiture_gagnante = [v.marque, v.modele]
+
+print(f"la voiture {voiture_gagnante[0]} {voiture_gagnante[1]} gagne la course avec un temps de {meilleur_temps:.2f}")
