@@ -22,3 +22,25 @@ Queue : push dernier element , pop le 1er element FIFO
 single linked list 
 double linked list
 HashTable : --> dictionnaire python
+binary search Tree : utilisation intelligente de datastructure
+par exmeple pour recherche dans un tableau trié!! -> o(log n) au lieu de O(n)
+RBT  : arbre binaire, toutes les fins (feuilles) sont nulles 
+le rebalançage est aussi O(log n), les lectures et écritures sont garantis O(log n)
+
+sorted
+BubbleSort : O(n^2)
+Quicksort : O(n log n) --> 2 pointeurs + pivot
+MergeSort : O(n log n) space complexity O(n)
+HeapSort : O(n log n) space complexity O(1) --> trouve le max via binary tree et
+ le met à droite dans le tableau puis recommence avec le reste (gauche) du tableau
+
+SelectionSort : O(n^2) --> 2 pointeurs 
+InsertionSort : O(n^2)
+
+Threading
+paralelle vs concurentiel
+import threading
+t.start()
+t.join()
+lock = threading.lock()
+with lock: acquerir le verrou avant de modifier le compteur
