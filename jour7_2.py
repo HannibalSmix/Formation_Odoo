@@ -33,3 +33,23 @@ class Voiture:
 ma_voiture = Voiture()
 ma_voiture.roues = 5   # sans le mutateur (setter) on ne pourrait pas modifier roues
 print(ma_voiture.roues)
+
+Attributs spéciaux
+
+__name__
+__base__
+__class__
+__dict__
+__doc__ --> doc stream
+
+methodes spéciales
+__init__(self,...)
+__repr__(self) 
+__str__(self) --> pour str(), format() et print()
+
+__eq__ surcharge ==
+__ne__ 
+__lt__
+__le__
+__gt__ 
+
