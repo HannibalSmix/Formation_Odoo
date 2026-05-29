@@ -41,14 +41,15 @@ class Voiture():
             # time.sleep(random.randint(1, 3))
 
 
-circuit = Circuit(15, 10)
+circuit = Circuit(1, 10)
 voiture_1 = Voiture(80, 130, "Truc", "Mini")
 voiture_2 = Voiture(70, 140, "Brol", "VW")
 voiture_3 = Voiture(75, 135, "Machin", "Honda")
 voiture_4 = Voiture(85, 125, "Plop", "Toyoto")
 voiture_5 = Voiture(90, 115, "Clac", "Vrouvroum")
+voiture_6 = Voiture(50, 90, "Carrémentnul", "Nunul")
 
-les_voitures = [voiture_1, voiture_2, voiture_3, voiture_4, voiture_5]
+les_voitures = [voiture_1, voiture_2, voiture_3, voiture_4, voiture_5, voiture_6]
 
 threads = []
 for voiture in les_voitures:
