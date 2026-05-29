@@ -5,5 +5,5 @@ class De:
         self.minimum = 1
         self.maximum = max
 
-    def lancer(self):
+    def lance(self):
         return randint(self.minimum, self.maximum)

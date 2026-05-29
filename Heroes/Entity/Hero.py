@@ -8,9 +8,36 @@ class Hero(Personnage):
         
     def frappe(self, autre):
         super().frappe(autre)
-        if autre.pv <= 0:
-            self.gold += autre.gold
-            self.cuir += autre.cuir
 
     def repos(self):
         self.pv = self.pvmax
+
+    def depecer(self, monstre):
+        self.cuir += monstre.cuir
+
+    def move(self, direction, zone):
+        zone.area[self.x][self.y] = '.'
+        match direction:
+            case 'h':
+                self.x -= 1
+            case 'b':
+                self.x += 1
+            case 'g':
+                self.y += 1
+            case 'd':
+                self.y += 1
+
+        zone.area[self.x][self.y] = 'H'
+
+    def adistancedemonstre(self, zone):
+        if (self.x+1, self.y) in zone.positions_monstres:
+            return zone.monstre(self.x+1, self.y)
+        elif (self.x, self.y+1) in zone.positions_monstres:
+            return zone.monstre(self.x, self.y+1)
+        elif (self.x, self.y-1) in zone.positions_monstres:
+            return zone.monstre(self.x, self.y-1)
+        elif (self.x-1, self.y) in zone.positions_monstres:
+            return zone.monstre(self.x-1, self.y)
+        else:
+            return False
+

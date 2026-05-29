@@ -40,7 +40,7 @@ class Personnage:
     
     @pv.setter
     def pv(self, value):
-        self.pv = value
+        self.__pv = value
 
     @property
     def endurance(self):
@@ -53,6 +53,7 @@ class Personnage:
     def frappe(self, autre):
         degats = randint(1, 4) + self.bonus_force
         autre.pv -= degats 
+        print(f"{self.__class__.__name__} frappe de {degats} dégats sur {autre.__class__.__name__}")
 
     def __str__(self):
         return f"Endurance= {self._endurance}, Force= {self._force}, Pv= {self.__pv}, gold= {self.gold}, cuir= {self.cuir}, position=({self.x, self.y}) "
