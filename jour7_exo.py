@@ -20,7 +20,8 @@ class Voiture():
     def roule_un_tour(self, circuit):
         vitesse_rand = random.randint(self.vitesse_min, self.vitesse_max)
         temps = 60 * circuit.distance / vitesse_rand 
-        print(f"Temps voiture {self.marque} {self.modele} : {temps:.2f}")
+        secondes = (temps-int(temps))*60
+        print(f"Temps voiture {self.marque} {self.modele} : {int(temps)} minutes et {secondes:.2f} sec.")
         self.temps += temps
         self.tour +=1
 
@@ -46,4 +47,4 @@ for v in les_voitures:
         meilleur_temps = v.temps
         voiture_gagnante = [v.marque, v.modele]
 
-print(f"la voiture {voiture_gagnante[0]} {voiture_gagnante[1]} gagne la course avec un temps de {meilleur_temps:.2f}")
+print(f"la voiture {voiture_gagnante[0]} {voiture_gagnante[1]} gagne la course avec un temps de {meilleur_temps:.2f} minutes")
