@@ -23,7 +23,7 @@ class Hero(Personnage):
             case 'b':
                 self.x += 1
             case 'g':
-                self.y += 1
+                self.y -= 1
             case 'd':
                 self.y += 1
 
@@ -31,13 +31,13 @@ class Hero(Personnage):
 
     def adistancedemonstre(self, zone):
         if (self.x+1, self.y) in zone.positions_monstres:
-            return zone.monstre(self.x+1, self.y)
+            return zone.monstreatposition(self.x+1, self.y)
         elif (self.x, self.y+1) in zone.positions_monstres:
-            return zone.monstre(self.x, self.y+1)
+            return zone.monstreatposition(self.x, self.y+1)
         elif (self.x, self.y-1) in zone.positions_monstres:
-            return zone.monstre(self.x, self.y-1)
+            return zone.monstreatposition(self.x, self.y-1)
         elif (self.x-1, self.y) in zone.positions_monstres:
-            return zone.monstre(self.x-1, self.y)
+            return zone.monstreatposition(self.x-1, self.y)
         else:
             return False
 

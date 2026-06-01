@@ -25,12 +25,13 @@ class Zone:
                         self.positions_monstres[(x, y)] = monstre
                         monstre.x = x
                         monstre.y = y
-                        if monstre.__class__.__name__ == 'Loup':
-                            self.area[x][y] = 'L'
-                        elif monstre.__class__.__name__ == 'Orque':
-                            self.area[x][y] = 'O'
-                        if monstre.__class__.__name__ == 'Dragonnet':
-                            self.area[x][y] = 'D'
+                        self.area[x][y] = '.'
+                        # if monstre.__class__.__name__ == 'Loup':
+                        #     self.area[x][y] = 'L'
+                        # elif monstre.__class__.__name__ == 'Orque':
+                        #     self.area[x][y] = 'O'
+                        # if monstre.__class__.__name__ == 'Dragonnet':
+                        #     self.area[x][y] = 'D'
 
     def positionner_hero(self, hero):
         position_trouvee = True

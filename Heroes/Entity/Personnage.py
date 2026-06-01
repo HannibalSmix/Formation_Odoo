@@ -33,7 +33,6 @@ class Personnage:
         self.x = x
         self.y = y
 
-
     @property
     def pv(self):
         return self.__pv
