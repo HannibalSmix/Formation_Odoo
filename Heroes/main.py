@@ -54,14 +54,19 @@ while len(monstres) > 0 and mon_hero.pv > 0:
                 mon_hero.gold += ze_monstre.gold
                 mon_hero.depecer(ze_monstre)
                 monstres.pop()
-                zone.area[ze_monstre.x][ze_monstre.y] = '.'
-                zone.positions_monstres.pop(ze_monstre.x, ze_monstre.y) # iciiiii
+                # zone.area[ze_monstre.x][ze_monstre.y] = '.'
+                zone.positions_monstres.pop(ze_monstre.x, ze_monstre.y) 
             else:
                 ze_monstre.frappe(mon_hero)
                 if mon_hero.pv <= 0:
+                    zone.area[mon_hero.x][mon_hero.y] = '\u271D'
                     print("hero mort")
     
 if mon_hero.pv > 0:
     print('Victoire')
 else:
+    for i in zone.area:
+        for j in i:
+            print(j, sep='', end='')
+        print(end='\n')
     print('Défaite')
