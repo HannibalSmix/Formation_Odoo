@@ -2,7 +2,7 @@ from random import randint
 
 
 def create_grid(rows, cols, value):
-    grid = [[value for _ in range(rows)] for _ in range(cols)]
+    grid = [[value for _ in range(cols)] for _ in range(rows)]
     return grid
 
 
@@ -27,19 +27,20 @@ def print_grid(grid):
 
 def generate_mines(rows, cols, nb_mines, forbidden_cell):
     mines = []
+    arround_forbidden_cell = get_neighbors(rows, cols, forbidden_cell[0], forbidden_cell[1])
     for i in range(nb_mines):
         place = True
         while place:
             x = randint(0, rows-1)
             y = randint(0, cols-1)
-            if not ((x, y) in mines or (x, y) == forbidden_cell):
+            if not ((x, y) in mines or (x, y) == forbidden_cell or [x, y] in arround_forbidden_cell):
                 mines.append((x, y))
                 place = False
     return mines
 
 
 def create_hidden_grid(rows, cols, mines):
-    internal_grid = [[0 for _ in range(rows)] for _ in range(cols)]
+    internal_grid = [[0 for _ in range(cols)] for _ in range(rows)]
     for (i, j) in mines:
         internal_grid[i][j] = '*'
         neighbors = get_neighbors(rows, cols, i, j)
@@ -58,15 +59,14 @@ def reveal(hidden, visible, r, c):
         for i, j in neighbors:
             reveal(hidden, visible, i, j)
     
-    elif hidden[r][c] != 0:
+    elif hidden[r][c] != 0 and visible[r][c] != 'F':
         visible[r][c] = hidden[r][c]
 
 
-def has_won(hidden, visible):
-    c = [el for row in hidden for el in row].count('*')
+def has_won(visible, nb_mines):
     c_2 = [el for row in visible for el in row].count('#')
     c_2 += [el for row in visible for el in row].count('F')
-    return c == c_2
+    return nb_mines == c_2
 
 
 def has_lost(visible):
@@ -79,14 +79,13 @@ def has_lost(visible):
 
 def validation(command, rows, cols):
     coord_valid = True
-    # command = input('Command (o row col/ f row col): ').split(' ')
     r, c = -1, -1
     if len(command) == 3:
         if command[1].isdigit():
             r = int(command[1])
             if command[2].isdigit():
                 c = int(command[2])
-                if r >= 0 and r < rows and c >=0 and c <= cols:
+                if r >= 0 and r < rows and c >= 0 and c < cols:
                     coord_valid = False
 
     return coord_valid
@@ -122,8 +121,10 @@ def minesweeper(rows, cols, nb_mines):
         if command[0] == 'f':
             if visible[r][c] == '#':
                 visible[r][c] = 'F'
-            else:
+            elif visible[r][c] == 'F':
                 visible[r][c] = '#'
+            else:
+                print('Vous ne pouvez flaguer une case révélée')
         
         print_grid(visible)
 
@@ -131,12 +132,12 @@ def minesweeper(rows, cols, nb_mines):
             print('You loose')
             end = False
 
-        if has_won(hidden, visible):
+        if has_won(visible, nb_mines):
             
             print('You win')
             end = False
 
 
-minesweeper(5, 5, 5)
+minesweeper(10, 20, 80)
 
 
