@@ -10,6 +10,8 @@ from Entity.Personnage import Personnage
 from Entity.Zone import Zone
 from random import randint
 
+# from Entity import De --->  avec le __init__.py
+
 zone = Zone()
 
 mon_hero = Humain()
@@ -59,7 +61,6 @@ while len(monstres) > 0 and mon_hero.pv > 0:
                 mon_hero.gold += ze_monstre.gold
                 mon_hero.depecer(ze_monstre)
                 monstres.pop()
-                # zone.area[ze_monstre.x][ze_monstre.y] = '.'
                 zone.positions_monstres.pop(ze_monstre.x, ze_monstre.y)
             else:
                 ze_monstre.frappe(mon_hero)
