@@ -25,6 +25,7 @@ class Zone:
                         self.positions_monstres[(x, y)] = monstre
                         monstre.x = x
                         monstre.y = y
+
                         if monstre.__class__.__name__ == 'Loup':
                             self.area[x][y] = '.'
                         elif monstre.__class__.__name__ == 'Orque':

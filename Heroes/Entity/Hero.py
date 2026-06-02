@@ -5,6 +5,21 @@ class Hero(Personnage):
     def __init__(self, x=0, y=0):
         super().__init__(x, y)
         self.pvmax = self.pv
+        # ici qu'on met le cuir et l'or
+        # self.__gold = 0
+        # self.__leather = 0
+
+    # @property
+    # def gold(self):
+    #     return self.__gold
+    # @property
+    # def leather(self):
+    #     return self.__leather
+
+    def loot_gold(self, amount: int):
+        if amount < 0:
+            amount = 0
+        self.__gold += amount  # y a pas de setter donc on peut mettre les "__"
         
     def frappe(self, autre):
         super().frappe(autre)
@@ -40,4 +55,9 @@ class Hero(Personnage):
             return zone.monstreatposition(self.x-1, self.y)
         else:
             return False
+        
+    def __str__(self):
+        return f'HERO {super().__str__()}'
+
+
 

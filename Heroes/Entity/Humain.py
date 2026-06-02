@@ -5,7 +5,15 @@ class Humain(Hero):
     def __init__(self, x=0, y=0):
         super().__init__(x, y) 
         self._endurance += 1
-        self._force += 1    
+        self._force += 1    # best practice avec @property
+
+    # @property
+    # def endurance(self):
+    #     return super().endurance + 1
+    
+    # @property
+    # def force(self):
+    #     return super().force + 1 
 
     def __str__(self):
         return super().__str__() 
