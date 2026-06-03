@@ -119,6 +119,8 @@ def longest_word(string):
 print(longest_word("bonjour je suis davit"))
 print('#####################')
 
+
+
 def two_sum(numbers, target):
     indexes = []
     for index, i in enumerate(numbers):
@@ -129,6 +131,14 @@ def two_sum(numbers, target):
             break
 
     return indexes[0], indexes[1]
+
+
+def two_sum(numbers, target):
+    indexes = {}
+    for index, i in enumerate(numbers):
+        if target-i in indexes:
+            return (indexes[target-i], i)
+        indexes[target-i] = i
 
 
 print(two_sum([2, 7, 11, 15], 9))
