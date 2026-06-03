@@ -25,13 +25,13 @@ class Zone:
                         self.positions_monstres[(x, y)] = monstre
                         monstre.x = x
                         monstre.y = y
-                        self.area[x][y] = '.'
-                        # if monstre.__class__.__name__ == 'Loup':
-                        #     self.area[x][y] = 'L'
-                        # elif monstre.__class__.__name__ == 'Orque':
-                        #     self.area[x][y] = 'O'
-                        # if monstre.__class__.__name__ == 'Dragonnet':
-                        #     self.area[x][y] = 'D'
+
+                        if monstre.__class__.__name__ == 'Loup':
+                            self.area[x][y] = '.'
+                        elif monstre.__class__.__name__ == 'Orque':
+                            self.area[x][y] = '.'
+                        if monstre.__class__.__name__ == 'Dragonnet':
+                            self.area[x][y] = '.'
 
     def positionner_hero(self, hero):
         position_trouvee = True
@@ -56,5 +56,14 @@ class Zone:
                             self.area[x][y] = 'H'
 
     def monstreatposition(self, x, y):
+        monstre = self.positions_monstres[(x, y)]
+        if monstre:
+            if monstre.__class__.__name__ == 'Loup':
+                self.area[x][y] = 'L'
+            elif monstre.__class__.__name__ == 'Orque':
+                self.area[x][y] = 'O'
+            if monstre.__class__.__name__ == 'Dragonnet':
+                self.area[x][y] = 'D'
+
         return self.positions_monstres[(x, y)]
 
