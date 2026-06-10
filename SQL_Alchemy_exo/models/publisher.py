@@ -17,7 +17,7 @@ class Publishers(Base):
 
     game: Mapped["Games"] = relationship(
         "Games",
-        back_populates="game"
+        back_populates="publisher"
     )
 
     # gender_id: Mapped[int] = mapped_column(ForeignKey("genders.id"))

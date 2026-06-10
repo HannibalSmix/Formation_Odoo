@@ -19,12 +19,12 @@ class Reviews(Base):
 
     user: Mapped["Users"] = relationship(
         "Users",
-        back_populates="usergames",
+        back_populates="reviews",
         uselist=False
     )
     game: Mapped["Games"] = relationship(
         "Games",
-        back_populates="usergames",
+        back_populates="reviews",
         uselist=False
     )
 

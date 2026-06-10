@@ -4,6 +4,9 @@ from sqlalchemy import String, Identity, ForeignKey, DateTime
 from typing import TYPE_CHECKING
 from datetime import datetime
 
+from models.review import Reviews
+from models.usergame import UserGames
+
 
 if TYPE_CHECKING:
     from gender import Genders
@@ -21,11 +24,22 @@ class Users(Base):
     bod: Mapped[datetime] = mapped_column(DateTime)
 
     gender_id: Mapped[int] = mapped_column(ForeignKey("genders.id"))
-    gender: Mapped["Genders"] = relationship(
+    gender_rel: Mapped["Genders"] = relationship(
         "Genders",
+        back_populates="user",
+        uselist=False
+    )
+
+    usergames: Mapped["UserGames"] = relationship(
+        "UserGames",
+        back_populates="user"
+    )
+
+    reviews: Mapped["Reviews"] = relationship(
+        "Reviews",
         back_populates="user"
     )
 
     def __repr__(self):
-        return f"username = {self.username}, email = {self.email}"#, gender = {self.gender}"
+        return f"username = {self.username}, email = {self.email}, country = {self.country}, bod = {self.bod}, gender = {self.gender_rel}"
     

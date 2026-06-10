@@ -7,6 +7,9 @@ import enum
 from sqlalchemy import Enum
 from sqlalchemy import CheckConstraint
 
+from models.review import Reviews
+from models.usergame import UserGames
+
 if TYPE_CHECKING:
     from publisher import Publishers
 #     from post import Posts
@@ -35,11 +38,20 @@ class Games(Base):
         back_populates="game",
         uselist=False
     )
+    usergames: Mapped["UserGames"] = relationship(
+        "UserGames",
+        back_populates="game"
+    )
+
+    reviews: Mapped["Reviews"] = relationship(
+        "Reviews",
+        back_populates="game"
+    )    
 
     __table_args__ = (
         CheckConstraint('price >= 0', name='check_price_non_negative'),
     )
 
     def __repr__(self):
-        return f"id = {self.id}, title = {self.title}, price = {self.price}, release_date = {self.release_date}"
+        return f"id = {self.id}, title = {self.title}, price = {self.price}, release_date = {self.release_date}, pegy = {self.pegy}"
     

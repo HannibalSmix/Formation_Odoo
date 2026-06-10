@@ -24,8 +24,7 @@ class Genders(Base):
 
     user: Mapped["Users"] = relationship(
         "Users",
-        back_populates="gender",
-        uselist=False   
+        back_populates="gender_rel"
     )
 
     def __repr__(self):
