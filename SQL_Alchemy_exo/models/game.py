@@ -1,8 +1,8 @@
 from db.database import Base
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from sqlalchemy import String, Identity, ForeignKey
+from sqlalchemy import String, Identity, ForeignKey, Float, DateTime
 from typing import TYPE_CHECKING
-import datetime
+from datetime import datetime
 import enum
 from sqlalchemy import Enum
 from sqlalchemy import CheckConstraint
@@ -25,8 +25,8 @@ class Games(Base):
 
     id: Mapped[int] = mapped_column(Identity(always=True), primary_key=True) #identity pour GENERATED ALWAYS AS IDENTITY
     title: Mapped[str] = mapped_column(String(50), unique=True, nullable=False)
-    price: Mapped[float] = mapped_column(float, nullable=True)
-    release_date: Mapped[datetime.datetime] = mapped_column(datetime)
+    price: Mapped[float] = mapped_column(Float, nullable=True)
+    release_date: Mapped[datetime] = mapped_column(DateTime)
     pegy: Mapped[str] = mapped_column(Enum(EnumPegy))
 
     publisher_id: Mapped[int] = mapped_column(ForeignKey("publishers.id"))

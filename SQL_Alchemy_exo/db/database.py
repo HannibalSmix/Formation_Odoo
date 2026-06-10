@@ -3,7 +3,7 @@ import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase
 
-load_dotenv()
+load_dotenv()   #charge les variables du fichier `.env` dans l'environnement Python.
 
 DATABASE_URL = (
     f"postgresql+psycopg://"
@@ -14,7 +14,7 @@ DATABASE_URL = (
     f"{os.getenv('POSTGRES_DB')}"
 )
 
-engine = create_engine(DATABASE_URL, echo=False)
+engine = create_engine(DATABASE_URL, echo=True)
 
 
 class Base(DeclarativeBase):

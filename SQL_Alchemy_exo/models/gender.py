@@ -9,6 +9,7 @@ if TYPE_CHECKING:
     from user import Users
 #     from post import Posts
 
+
 class MyEnum(enum.Enum):
     MALE = 1
     FEMALE = 2
@@ -18,7 +19,7 @@ class MyEnum(enum.Enum):
 class Genders(Base):
     __tablename__ = "genders"
 
-    id: Mapped[int] = mapped_column(Identity(always=True), primary_key=True) #identity pour GENERATED ALWAYS AS IDENTITY
+    id: Mapped[int] = mapped_column(Identity(always=True), primary_key=True)  #identity pour GENERATED ALWAYS AS IDENTITY
     gender: Mapped[str] = mapped_column(Enum(MyEnum))
 
     user: Mapped["Users"] = relationship(
