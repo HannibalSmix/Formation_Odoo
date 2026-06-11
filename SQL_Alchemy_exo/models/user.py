@@ -41,5 +41,4 @@ class Users(Base):
     )
 
     def __repr__(self):
-        return f"username = {self.username}, email = {self.email}, country = {self.country}, bod = {self.bod}, gender = {self.gender_rel}"
-    
+        return f"username = {self.username}, email = {self.email}, country = {self.country}, bod = {self.bod}, gender = {self.gender_rel.gender}"  

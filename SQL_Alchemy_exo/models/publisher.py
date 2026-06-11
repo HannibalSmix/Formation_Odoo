@@ -27,5 +27,5 @@ class Publishers(Base):
     # )
 
     def __repr__(self):
-        return f"username = {self.username}, email = {self.email}"#, gender = {self.gender}"
+        return f"id = {self.id}, name = {self.name}, country = {self.country}"
     

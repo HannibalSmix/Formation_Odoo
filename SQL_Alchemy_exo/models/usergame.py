@@ -18,7 +18,7 @@ class UserGames(Base):
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), primary_key=True)
     game_id: Mapped[int] = mapped_column(ForeignKey("games.id"), primary_key=True) #identity pour GENERATED ALWAYS AS IDENTITY
     purchase_date: Mapped[datetime] = mapped_column(DateTime, nullable=False)
-    hours_played: Mapped[int] = mapped_column(Integer)
+    hours_played: Mapped[int] = mapped_column(Integer, nullable=True, default=None)
 
     user: Mapped["Users"] = relationship(
         "Users",
@@ -37,5 +37,5 @@ class UserGames(Base):
     )
 
     def __repr__(self):
-        return f"id = {self.id}, title = {self.title}, price = {self.price}, release_date = {self.release_date}"
+        return f"user_id = {self.user_id}, game_id = {self.game_id}, purchase_date = {self.purchase_date}, hours_played = {self.hours_played}"
     

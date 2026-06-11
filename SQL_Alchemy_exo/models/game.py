@@ -18,10 +18,10 @@ if TYPE_CHECKING:
 
 class EnumPegy(enum.Enum):
     PEGI_3 = 1
-    PEGI_7 = 2
-    PEGI_12 = 3
-    PEGI_16 = 4
-    PEGI_18 = 5
+    PEGI_7 = 7
+    PEGI_12 = 12
+    PEGI_16 = 16
+    PEGI_18 = 18
 
 class Games(Base):
     __tablename__ = "games"
