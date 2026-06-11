@@ -1,0 +1,56 @@
+-- INSERT INTO users (username, email, country) VALUES
+-- ('alice_martin', 'alice.martin@fakemail.io', 'France'),
+-- ('bob_dupont', 'bob.dupont@testbox.dev', 'Belgique'),
+-- ('carlos_rivera', 'carlos.rivera@noreply.xyz', 'Espagne'),
+-- ('diana_mueller', 'diana.mueller@fakemail.io', 'France'),
+-- ('ethan_smith', 'ethan.smith@testbox.dev', 'Belgique'),
+-- ('fatima_benali', 'fatima.benali@noreply.xyz', 'France'),
+-- ('giorgio_russo', 'giorgio.russo@fakemail.io', 'Espagne'),
+-- ('hana_tanaka', 'hana.tanaka@testbox.dev', 'France'),
+-- ('ivan_petrov', 'ivan.petrov@noreply.xyz', 'Belgique'),
+-- ('julia_costa', 'julia.costa@fakemail.io', 'Espagne'),
+-- ('kevin_okafor', 'kevin.okafor@testbox.dev', 'France'),
+-- ('laura_blanc', 'laura.blanc@noreply.xyz', 'Belgique'),
+-- ('miguel_flores', 'miguel.flores@fakemail.io', 'France'),
+-- ('nina_kovac', 'nina.kovac@testbox.dev', 'Espagne'),
+-- ('omar_hassan', 'omar.hassan@noreply.xyz', 'Belgique');
+
+-- select * from users
+-- INSERT INTO profiles (bio, user_id) VALUES
+-- ('Passionnée de cuisine et de voyages, je partage mes aventures au quotidien.', 2),
+-- ('Développeur web le jour, guitariste amateur la nuit.', 3),
+-- ('Fan de football et de jeux vidéo. Toujours partant pour une bonne discussion.', 4),
+-- ('Graphiste freelance basée à Paris. J''aime le café et les polices de caractères.', 5),
+-- ('Étudiant en ingénierie, curieux de tout ce qui touche à l''IA.', 6),
+-- ('Maman de trois chats, amatrice de thé et de romans policiers.', 7),
+-- ('Photographe amateur, je capture les petits moments du quotidien.', 8),
+-- ('Accro au sport et à la nutrition. Coach fitness certifié.', 9),
+-- ('Voyageur compulsif, j''ai visité plus de 30 pays. Prochain stop : inconnu.', 10),
+-- ('Musicienne et podcasteuse. Je parle de culture et de société.', 11),
+-- ('Entrepreneur dans l''âme, toujours en train de monter un nouveau projet.', 12),
+-- ('Libraire de métier, lectrice par vocation. Recommandations bienvenues !', 13),
+-- ('Ingénieur en cybersécurité, passionné par l''open source.', 14),
+-- ('Danseuse classique reconvertie en prof de yoga. La sérénité avant tout.', 15),
+-- ('Journaliste indépendant, spécialisé en environnement et énergie.', 16);
+
+-- DELETE FROM profiles WHERE id = 11
+SELECT * FROM posts
+
+-- INSERT INTO posts (post, user_id) VALUES
+-- ('Ma recette de tarte aux pommes maison !', 2),
+-- ('Mes astuces pour voyager léger en avion.', 2),
+-- ('Je viens de finir mon premier projet React, trop fier !', 3),
+-- ('Un bug de 3h résolu grâce à une virgule manquante...', 3),
+-- ('Le CSS c''est de l''art, unpopular opinion.', 3),
+-- ('Le match d''hier soir était incroyable, quel but !', 4),
+-- ('Nouvelle identité visuelle pour un client, qu''en pensez-vous ?', 5),
+-- ('Refonte complète d''un logo, before/after en images.', 5),
+-- ('Thread sur les réseaux de neurones pour les débutants.', 6),
+-- ('Mon chat a encore volé ma place dans le canapé.', 7),
+-- ('Golden hour en forêt, mes meilleures photos du mois.', 8),
+-- ('La photo de rue, un art sous-estimé.', 8),
+-- ('Retour de Lisbonne, une ville absolument magnifique !', 10),
+-- ('On lève des fonds pour notre startup, exciting !', 12),
+-- ('Pourquoi vous devriez migrer vers Linux en 2025.', 14),
+-- ('Les bienfaits du yoga sur le sommeil, mon expérience.', 15);
+
